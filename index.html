@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ThatMorganGuy - Twitch Community</title>
+    <meta name="description" content="Welcome to the official community site for Twitch streamer ThatMorganGuy. Watch live, check the schedule, and connect on socials." />
+    <meta property="og:title" content="ThatMorganGuy - Twitch Community" />
+    <meta property="og:description" content="Watch live, check the schedule, and connect on socials." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="./assets/og-image.png" />
+    <meta name="theme-color" content="#9146FF" />
+
+    <link rel="preconnect" href="https://player.twitch.tv" />
+    <link rel="preconnect" href="https://www.twitch.tv" />
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 128 128'%3E%3Cpath fill='%239146FF' d='M19 16h90v60L86 99H67l-14 13H38V99H19z'/%3E%3Cpath fill='%23fff' d='M39 32h50v40H73L59 86H49V72H39z'/%3E%3Crect width='10' height='22' x='50' y='40' fill='%239146FF'/%3E%3Crect width='10' height='22' x='68' y='40' fill='%239146FF'/%3E%3C/svg%3E" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="#home" aria-label="Go to top">
+          <img src="./assets/logo.svg" alt="TMG logo" class="brand-mark" />
+          <span class="brand-text">ThatMorganGuy</span>
+        </a>
+
+        <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+
+        <nav class="site-nav" aria-label="Primary">
+          <a href="#live">Live</a>
+          <a href="#schedule">Schedule</a>
+          <a href="#games">Games</a>
+          <a href="./faq.html">FAQ</a>
+          <a href="#about">About</a>
+          <a class="cta" href="https://twitch.tv/ThatMorganGuy" target="_blank" rel="noopener">Follow on Twitch</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="home">
+      <section class="hero">
+        <div class="container hero-inner">
+          <div class="hero-copy">
+            <h1>Welcome to the community</h1>
+            <p>Hang out with <strong>@ThatMorganGuy</strong>, catch the latest streams, and join the conversation.</p>
+            <div class="hero-actions">
+              <a class="button primary" href="#live">Watch Live</a>
+              <a class="button" href="#schedule">View Schedule</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="live" class="live">
+        <div class="container">
+          <h2>Live on Twitch</h2>
+          <p class="section-lead">If the embed does not load locally, open via Twitch!</p>
+
+          <div class="embed-grid" data-channel="ThatMorganGuy">
+            <div class="player-wrap">
+              <div class="embed-fallback" id="player-fallback" hidden>
+                <p>To view the embedded player, serve this site with a local server so the Twitch embed can verify the domain.</p>
+                <p>
+                  Or watch directly on
+                  <a href="https://twitch.tv/ThatMorganGuy" target="_blank" rel="noopener">twitch.tv/ThatMorganGuy</a>.
+                </p>
+              </div>
+              <iframe id="twitch-player" title="Twitch player" allowfullscreen loading="lazy"></iframe>
+            </div>
+            <aside class="chat-wrap">
+              <iframe id="twitch-chat" title="Twitch chat" loading="lazy"></iframe>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <section id="games" class="games">
+        <div class="container">
+          <h2>Games we play</h2>
+          <div class="games-grid">
+            <a class="game-card valorant" href="https://playvalorant.com/" target="_blank" rel="noopener">
+              <div class="cover">
+                <img src="./assets/games/EGS_VALORANT_RiotGames_S1_2560x1440-7d279548324d3a3cbef40e1dc7e84994.webp" alt="VALORANT key art" loading="lazy" />
+              </div>
+              <div class="game-logo">VALORANT</div>
+              <p>Competitive FPS. Community 5-stacks, ranked grinds, and aim training arcs.</p>
+            </a>
+            <a class="game-card supervive" href="https://supervive.game/" target="_blank" rel="noopener">
+              <div class="cover">
+                <img src="./assets/games/supervive.jpg" alt="Supervive key art" loading="lazy" />
+              </div>
+              <div class="game-logo">Supervive</div>
+              <p>Hero LOL like shooter chaos. Team plays, clutch saves, and spicy drops. Oh and i die a lot....</p>
+            </a>
+          </div>
+          <p class="muted">We rotate in variety titles too. Got a suggestion? Drop it in chat or Discord.</p>
+        </div>
+      </section>
+
+      
+
+      <section id="about" class="about">
+        <div class="container about-grid">
+          <div>
+            <h2>About Morgan</h2>
+            <p>Hey I'm Morgan! I stream a mix of variety games, cozy chats, and community events. This is our home on the web for schedules, announcements, and links.</p>
+            <p>If you like good vibes, spicy plays, and the (occasional) scuffed moment, you're in the right place.</p>
+          </div>
+          <div class="about-card">
+            <h3>Join the community</h3>
+            <ul class="link-list">
+              <li><a href="https://twitch.tv/ThatMorganGuy" target="_blank" rel="noopener">Follow on Twitch</a></li>
+              <li><a href="https://discord.gg/DuN3RvmY6m" target="_blank" rel="noopener">Join the Discord</a></li>
+              <li><a href="https://www.youtube.com/ThatMorganGuy01" target="_blank" rel="noopener">Subscribe on YouTube</a></li>
+              <li><a href="https://www.tiktok.com/" target="_blank" rel="noopener">Follow on TikTok</a></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="schedule" class="schedule">
+        <div class="container">
+          <h2>Stream schedule</h2>
+          <div class="schedule-grid">
+            <div class="day"><h3>Mon</h3><p>6:00 PM – 10:00 PM</p></div>
+            <div class="day"><h3>Wed</h3><p>6:00 PM – 10:00 PM</p></div>
+            <div class="day"><h3>Fri</h3><p>6:00 PM – Late</p></div>
+            <div class="day"><h3>Sat</h3><p>Bonus streams (maybe)</p></div>
+          </div>
+          <p class="muted">Times are approximate and may change. Follow on Twitch for go-live notifications.</p>
+        </div>
+      </section>
+
+      
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p>© <span id="year"></span> ThatMorganGuy. Not affiliated with Twitch Interactive, Inc.</p>
+        <a class="muted" href="https://www.twitch.tv/p/en/legal/terms-of-service/" target="_blank" rel="noopener">Twitch Terms</a>
+      </div>
+    </footer>
+
+    <script src="./script.js"></script>
+  </body>
+  </html>
+
+

@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="bg2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f0f12"/>
+      <stop offset="100%" stop-color="#141825"/>
+    </linearGradient>
+    <linearGradient id="accent2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#22d3ee"/>
+      <stop offset="100%" stop-color="#38bdf8"/>
+    </linearGradient>
+  </defs>
+  <rect width="1280" height="720" fill="url(#bg2)"/>
+  <g opacity="0.22">
+    <circle cx="160" cy="-20" r="420" fill="url(#accent2)"/>
+    <circle cx="1200" cy="40" r="360" fill="#a970ff"/>
+  </g>
+  <rect x="60" y="520" width="620" height="110" rx="18" fill="rgba(255,255,255,0.06)" stroke="#22d3ee" stroke-opacity="0.6"/>
+  <text x="86" y="594" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="72" font-weight="800" fill="#ffffff">Supervive</text>
+  <text x="88" y="638" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="28" fill="#b7b7c9">Hero extraction shooter - team plays and spicy drops</text>
+</svg>
+
+
