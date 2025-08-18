@@ -68,11 +68,14 @@
     const rot = (Math.random() * 720 - 360) + 'deg';
     const delay = Math.random() * 1.2;
     const size = 12 + Math.random() * 16; // px
+    const sway = 8 + Math.random() * 16; // px
     el.style.left = startLeft + 'vw';
     el.style.width = size + 'px';
     el.style.height = size + 'px';
     el.style.setProperty('--drift', drift);
     el.style.setProperty('--rot', rot);
+    el.style.setProperty('--sway', sway + 'px');
+    el.style.setProperty('--sway-neg', -sway + 'px');
     el.style.animationDuration = duration + 's';
     el.style.animationDelay = delay + 's';
     document.body.appendChild(el);
@@ -91,3 +94,69 @@
 })();
 
 
+
+// Petals falling from Mumma_noma button on hover (site-wide)
+(function () {
+  const link = document.querySelector('.site-nav .mumma-noma');
+  if (!link) return;
+
+  let hoverInterval = null;
+
+  function spawnBlossomFromLink() {
+    const rect = link.getBoundingClientRect();
+    const el = document.createElement('div');
+    el.className = 'blossom';
+    const size = 10 + Math.random() * 14;
+    const relX = Math.random() * rect.width;
+    const relY = rect.height * (0.2 + Math.random() * 0.4); // start slightly lower inside the link
+    const duration = 6 + Math.random() * 6;
+    const drift = (Math.random() * 120 - 60) + 'px';
+    const rot = (Math.random() * 540 - 270) + 'deg';
+    const delay = Math.random() * 0.2;
+    const sway = 8 + Math.random() * 16; // px
+
+    el.style.position = 'absolute';
+    el.style.zIndex = '1'; // behind link content
+    el.style.width = size + 'px';
+    el.style.height = size + 'px';
+    el.style.left = relX + 'px';
+    el.style.top = relY + 'px';
+    el.style.setProperty('--drift', drift);
+    el.style.setProperty('--rot', rot);
+    el.style.setProperty('--sway', sway + 'px');
+    el.style.setProperty('--sway-neg', -sway + 'px');
+    el.style.animationDuration = duration + 's';
+    el.style.animationDelay = delay + 's';
+
+    link.appendChild(el);
+    // After initial fade/clipped emergence, move to body so it can fall beyond the nav area
+    setTimeout(() => {
+      const bodyRect = document.body.getBoundingClientRect();
+      const petalRect = el.getBoundingClientRect();
+      el.style.position = 'fixed';
+      el.style.left = petalRect.left - bodyRect.left + 'px';
+      el.style.top = petalRect.top - bodyRect.top + 'px';
+      el.style.zIndex = '60'; // above header (50) so petals are visible while falling
+      document.body.appendChild(el);
+    }, 180);
+
+    setTimeout(() => el.remove(), (delay + duration + 0.5) * 1000);
+  }
+
+  function burst(count) {
+    for (let i = 0; i < count; i++) spawnBlossomFromLink();
+  }
+
+  link.addEventListener('mouseenter', () => {
+    burst(8);
+    if (hoverInterval) clearInterval(hoverInterval);
+    hoverInterval = setInterval(() => burst(2), 300);
+  });
+
+  link.addEventListener('mouseleave', () => {
+    if (hoverInterval) {
+      clearInterval(hoverInterval);
+      hoverInterval = null;
+    }
+  });
+})();
