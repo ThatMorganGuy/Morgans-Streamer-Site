@@ -90,6 +90,223 @@ body::before {
 }
 .site-nav .cta:hover { transform: translateY(-1px); }
 
+/* Mumma_noma tab styling */
+.site-nav .mumma-noma {
+  color: var(--text);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.site-nav .mumma-noma::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 192, 203, 0.3), transparent);
+  transition: left 0.5s ease;
+}
+
+.site-nav .mumma-noma:hover {
+  background: rgba(255, 192, 203, 0.15);
+  color: #ffb6c1;
+  transform: translateY(-1px);
+  box-shadow: 0 0 20px rgba(255, 192, 203, 0.4), 0 0 40px rgba(255, 192, 203, 0.2);
+}
+
+.site-nav .mumma-noma:hover::before {
+  left: 100%;
+}
+
+/* Theme: Mumma_noma */
+body.theme-mumma {
+  /* Light theme base */
+  --bg: #fffafc;           /* soft pinkish white */
+  --bg-elev: #ffffff;      /* pure white surfaces */
+  --text: #2a2438;         /* deep plum for readability */
+  --muted: #6b6470;        /* muted lavender-gray */
+  /* Brand accents (pinks) */
+  --brand: #ff69b4;        /* hot pink */
+  --brand-2: #ffc0cb;      /* pink */
+  --accent: #ff5fa3;       /* stronger accent link */
+}
+body.theme-mumma::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(1200px 600px at 20% -10%, rgba(255,105,180,0.25), transparent 60%),
+    radial-gradient(800px 500px at 100% 0%, rgba(255,182,193,0.18), transparent 60%),
+    linear-gradient(180deg, rgba(255,255,255,0.00), rgba(255,255,255,0.00)),
+    var(--bg);
+}
+.theme-mumma .site-nav .cta,
+.theme-mumma .button.primary {
+  background: linear-gradient(135deg, var(--brand), var(--brand-2));
+  color: #fff;
+}
+.theme-mumma .button {
+  background: rgba(255, 105, 180, 0.08);
+  color: var(--text);
+}
+.theme-mumma .button:hover { background: rgba(255, 105, 180, 0.12); }
+/* Keep gradient on primary buttons when hovering (prevent wash-out) */
+.theme-mumma .button.primary:hover,
+.theme-mumma .button.primary:focus-visible {
+  background: linear-gradient(135deg, var(--brand), var(--brand-2));
+  color: #fff;
+}
+.theme-mumma .about-card {
+  background: linear-gradient(180deg, rgba(255, 192, 203, 0.15), rgba(255, 182, 193, 0.05));
+  border: 1px solid rgba(255, 192, 203, 0.35);
+}
+.theme-mumma .game-card:hover { border-color: rgba(255,105,180,0.45); }
+
+/* Light header + nav for Mumma */
+.theme-mumma .site-header {
+  background: rgba(255, 255, 255, 0.85);
+  border-bottom: 1px solid rgba(214, 51, 132, 0.15);
+  overflow: hidden;
+}
+.theme-mumma .site-nav a:hover { background: rgba(255, 105, 180, 0.08); }
+.theme-mumma .site-nav .cta,
+.theme-mumma .site-nav .cta:hover,
+.theme-mumma .site-nav .cta:focus-visible {
+  background: linear-gradient(135deg, var(--brand), var(--brand-2));
+  color: #fff;
+}
+.theme-mumma .site-footer { border-top: 1px solid rgba(214, 51, 132, 0.15); }
+.theme-mumma .link-list a { color: #d63384; }
+.theme-mumma .embed-fallback a { color: #d63384; }
+
+/* Light surface borders */
+.theme-mumma .player-wrap,
+.theme-mumma .chat-wrap,
+.theme-mumma .content-card,
+.theme-mumma .day,
+.theme-mumma .game-card {
+  background: var(--bg-elev);
+  border: 1px solid rgba(214, 51, 132, 0.18);
+}
+
+/* Crack hover effect on header bar (Mumma theme only) */
+.theme-mumma .site-header { position: sticky; }
+.theme-mumma .header-inner { position: relative; z-index: 1; }
+
+
+
+/* Falling cherry blossoms */
+.theme-mumma .blossom {
+  position: fixed;
+  top: -10vh;
+  left: 0;
+  width: 16px;
+  height: 16px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath fill='%23ffc0cb' d='M6 0c1.6 1.2 3 2.8 3.6 4.2.8 1.8.2 3.5-1.1 4.7-1.3 1.2-3 1.7-4.5.8C2 8.9 1 7.1 1.2 5.1 1.4 3 3.2 1.2 6 0z'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.9;
+  pointer-events: none;
+  z-index: -1;
+  animation-name: blossom-fall;
+  animation-timing-function: linear;
+  animation-iteration-count: 1;
+  animation-fill-mode: both;
+  transform: translate(0, 0) rotate(0deg);
+}
+
+@keyframes blossom-fall {
+  to {
+    transform: translate(var(--drift, 0px), 110vh) rotate(var(--rot, 360deg));
+    opacity: 0.95;
+  }
+}
+
+/* Switch button on Mumma page back to TMG (purple) */
+.theme-mumma .site-nav .switch-home { 
+  background: linear-gradient(135deg, #9146ff, #a970ff);
+  color: #fff;
+  font-weight: 700;
+  border: 1px solid rgba(145, 70, 255, 0.35);
+  position: relative;
+  overflow: hidden;
+  z-index: 0;
+}
+.theme-mumma .site-nav .switch-home:hover {
+  background: linear-gradient(135deg, #9146ff, #a970ff);
+  color: #fff;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(145, 70, 255, 0.35);
+  border-color: rgba(145, 70, 255, 0.6);
+}
+.theme-mumma .site-nav .switch-home:focus-visible {
+  outline: 2px solid rgba(145, 70, 255, 0.8);
+  outline-offset: 2px;
+}
+
+/* Remove crack overlays */
+.theme-mumma .site-nav .switch-home::before,
+.theme-mumma .site-nav .switch-home::after { content: none; }
+
+
+
+/* Mumma_noma page specific styling */
+.mumma-hero {
+  background: linear-gradient(135deg, rgba(255, 192, 203, 0.1), rgba(255, 182, 193, 0.05));
+  border-bottom: 1px solid rgba(255, 192, 203, 0.2);
+}
+
+.mumma-card {
+  background: linear-gradient(180deg, rgba(255, 192, 203, 0.15), rgba(255, 182, 193, 0.05));
+  border: 1px solid rgba(255, 192, 203, 0.35);
+}
+
+.content-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.content-card {
+  background: var(--bg-elev);
+  border: 1px solid rgba(255, 192, 203, 0.2);
+  border-radius: var(--radius);
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.content-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255, 192, 203, 0.4);
+  box-shadow: 0 0 20px rgba(255, 192, 203, 0.1);
+}
+
+.content-card h3 {
+  margin: 0 0 12px;
+  color: #ffb6c1;
+}
+
+.content-card p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.about-mumma, .mumma-content, .mumma-schedule {
+  padding: 32px 0;
+}
+
+.site-nav .mumma-noma.active {
+  background: rgba(255, 192, 203, 0.15);
+  color: #ffb6c1;
+  border: 1px solid rgba(255, 192, 203, 0.3);
+}
+
 /* Hero */
 .hero {
   padding: 64px 0 24px;
